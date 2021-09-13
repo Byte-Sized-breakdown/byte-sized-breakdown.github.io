@@ -1,4 +1,31 @@
-<head></head>
+<head>
+	<script type="module">
+		// Import the functions you need from the SDKs you need
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
+		import * as rtdb from "https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js";
+		// TODO: Add SDKs for Firebase products that you want to use
+		// https://firebase.google.com/docs/web/setup#available-libraries
+
+		// Your web app's Firebase configuration
+		const firebaseConfig = {
+		apiKey: "AIzaSyDX0kms6HZKcel43loGXmAQwmRKkvqljv0",
+		authDomain: "erisdb-6f4be.firebaseapp.com",
+		databaseURL: "https://erisdb-6f4be-default-rtdb.firebaseio.com",
+		projectId: "erisdb-6f4be",
+		storageBucket: "erisdb-6f4be.appspot.com",
+		messagingSenderId: "724347705969",
+		appId: "1:724347705969:web:be56f6a9254aef5eea19d0"
+		};
+
+		// Initialize Firebase
+		const app = initializeApp(firebaseConfig);
+		let db = rtdb.getDatabase(app);
+		let titleRef = rtdb.ref(db, "/");
+		rtdb.onValue(titleRef, ss=>{
+			alert(JSON.stringify(ss.val()));
+		});
+	</script>
+</head>
 <body>
 	<p> Hello World </p>
 </body>
