@@ -17,10 +17,10 @@
 		messagingSenderId: "724347705969",
 		appId: "1:724347705969:web:be56f6a9254aef5eea19d0"
 		};
+		const app = initializeApp(firebaseConfig);
 	</script>
 	<script>
 		// Initialize Firebase
-		const app = initializeApp(firebaseConfig);
 		let db = rtdb.getDatabase(app);
 		
 		// Get Current Channel's Chat Messages
