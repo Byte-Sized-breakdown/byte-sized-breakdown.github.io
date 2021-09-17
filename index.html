@@ -1,5 +1,5 @@
 <head>
-	<script src="code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="module">
 		// Import the functions you need from the SDKs you need
 		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
@@ -27,14 +27,16 @@
 		let channelRef = rtdb.ref(db, "/channels");
 		let channelID=0; let userID="guest";
 		rtdb.onValue(channelRef, ss=>{
-			renderChats(JSON.stringify(ss));
+			renderChats(ss);
 		});
 		
 		let renderChats = function(chat){
 			let ids = Object.keys(chat);
 			ids.map( id => {
-				let msg = chat[id];
-				$("#chatbox)
+				//let msg = chat[id];
+				$("#chatbox").append(
+					`<div class=msg>${JSON.stringify(id)}</div>`
+				);
 			});
 		}
 	</script>
