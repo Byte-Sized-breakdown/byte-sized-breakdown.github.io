@@ -27,7 +27,7 @@
 		let channelRef = rtdb.ref(db, "/channels");
 		let channelID=0; let userID="guest";
 		rtdb.onValue(channelRef, ss=>{
-			renderChats(ss);
+			renderChats(JSON.stringify(ss));
 		});
 		
 		let renderChats = function(chat){
@@ -42,7 +42,6 @@
 <body>
 	<p> Welcom to Eris </p>
 	<div id=chatbox></div>
-	</ul>
 	<input id="msg" type="text" />
 	<button id=submit>Send Message</button>
 </body>
