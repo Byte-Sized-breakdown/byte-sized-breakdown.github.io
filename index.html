@@ -21,12 +21,12 @@
 		// Initialize Firebase
 		const app = initializeApp(firebaseConfig);
 		let db = rtdb.getDatabase(app);
-		
+
 		// Get Current Channel's Chat Messages
-		let channelRef = rtdb.ref(db, "/channels");
 		let channelID=0; let userID="guest";
+		let channelRef = rtdb.ref(db, "/channels/"+channelID+"/");
 		rtdb.onValue(channelRef, ss=>{
-			renderChats(ss.channelID);
+			renderChats(ss);
 		});
 		
 		let renderChats = function(chat){
