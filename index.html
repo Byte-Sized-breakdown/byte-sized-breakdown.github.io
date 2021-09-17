@@ -26,7 +26,7 @@
 		let channelRef = rtdb.ref(db, "/channels");
 		let channelID=0; let userID="guest";
 		rtdb.onValue(channelRef, ss=>{
-			renderChats(ss);
+			renderChats(ss.channelID);
 		});
 		
 		let renderChats = function(chat){
