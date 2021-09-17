@@ -27,14 +27,16 @@
 		let channelRef = rtdb.ref(db, "/channels");
 		let channelID=0; let userID="guest";
 		rtdb.onValue(channelRef, ss=>{
-			renderChats(JSON.stringify(ss));
+			renderChats(ss);
 		});
 		
 		let renderChats = function(chat){
 			let ids = Object.keys(chat);
 			ids.map( id => {
-				let msg = chat[id];
-				$("#chatbox)
+				//let msg = chat[id];
+				$("#chatbox").append(
+					`<div class=msg>${JSON.stringify(id)}</div>`
+				);
 			});
 		}
 	</script>
