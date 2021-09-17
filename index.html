@@ -1,4 +1,5 @@
 <head>
+	<script src="code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="module">
 		// Import the functions you need from the SDKs you need
 		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
@@ -25,10 +26,19 @@
 			alert(JSON.stringify(ss.val()));
 		});
 	</script>
+	<script>
+		let renderChats = function(chat){
+			let ids = Object.keys(chat);
+			ids.map( id => {
+				let msg = chat[id];
+				$("#chatbox)
+			});
+		}
+	</script>
 </head>
 <body>
 	<p> Welcom to Eris </p>
-	<ul id=chatbox>
+	<div id=chatbox></div>
 	</ul>
 	<input id="msg" type="text" />
 	<button id=submit>Send Message</button>
