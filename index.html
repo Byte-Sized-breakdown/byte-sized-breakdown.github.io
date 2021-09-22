@@ -1,44 +1,6 @@
 <head>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script type="module">
-		// Import the functions you need from the SDKs you need
-		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
-		import * as rtdb from "https://www.gstatic.com/firebasejs/9.0.2/firebase-database.js";
-		// TODO: Add SDKs for Firebase products that you want to use
-		// https://firebase.google.com/docs/web/setup#available-libraries
-
-		// Your web app's Firebase configuration
-		const firebaseConfig = {
-		apiKey: "AIzaSyDX0kms6HZKcel43loGXmAQwmRKkvqljv0",
-		authDomain: "erisdb-6f4be.firebaseapp.com",
-		databaseURL: "https://erisdb-6f4be-default-rtdb.firebaseio.com",
-		projectId: "erisdb-6f4be",
-		storageBucket: "erisdb-6f4be.appspot.com",
-		messagingSenderId: "724347705969",
-		appId: "1:724347705969:web:be56f6a9254aef5eea19d0"
-		};
-		
-		// Initialize Firebase
-		const app = initializeApp(firebaseConfig);
-		let db = rtdb.getDatabase(app);
-
-		// Get Current Channel's Chat Messages
-		let channelID=0; let userID="guest";
-		let channelRef = rtdb.ref(db, "/channels/"+channelID+"/");
-		rtdb.onValue(channelRef, ss=>{
-			renderChats(ss);
-		});
-		
-		let renderChats = function(chat){
-			let ids = Object.keys(chat);
-			ids.map( id => {
-				//let msg = chat[id];
-				$("#chatbox").append(
-					`<div class=msg>${JSON.stringify(id)}</div>`
-				);
-			});
-		}
-	</script>
+	<script type="module" src="fbase.js"></script>
 </head>
 <body>
 	<p> Welcom to Eris </p>
