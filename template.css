@@ -1,0 +1,38 @@
+*{
+    font-family: Verdana, Helvetica, sans-serif;
+}
+
+#entrybar{
+    display: block;
+    margin: 0.5em;
+    position: fixed;
+    bottom: 0;
+}
+
+#entrybar #submit{
+    position: fixed;
+    right:0;
+}
+
+#entrybar #msg{
+    
+}
+
+.chatitem{
+    display: block;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    max-height: 10em;
+    margin:auto;
+    overflow: auto;
+}
+
+.chatitem .msgtxt{
+    display: inline;
+    margin: 5px;
+}
+
+.chatitem .userid{
+    display: inline;
+    margin: 1em;
+}
