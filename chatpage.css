@@ -2,37 +2,101 @@
     font-family: Verdana, Helvetica, sans-serif;
 }
 
-#entrybar{
+#eris-list{
+   width:20%;
+   display:inline;
+   float:left;
+   margin-top:5%;
+   margin-bottom:10%
+}
+
+#server-users{
+    width: 10%;
+    display: inline;
+    float:right;
+    margin-top:5%;
+    margin-bottom:10%;
+    overflow:auto;
+}
+
+#landing-navbar{
+    position: fixed;
+    top:0;
+    height:5%;
+}
+
+#landing-navbar #welcome-banner{
+    display: inline;
+}
+
+#server-list{
+    height: 42%;
+    width: 100%;
+    display:inline-block;
+    margin: auto;
+    overflow: auto;
+}
+
+#channel-list{
+    height: 42%;
+    width: 100%;
+    display:inline-block;
+    margin:auto;
+    overflow:auto;
+}
+
+#chat-entrybar{
     display: block;
     margin: 0.5em;
     position: fixed;
     bottom: 0;
+    height: 10%
 }
 
-#entrybar #submit{
+#chat-entrybar #chat-submit{
     position: fixed;
     right:0;
 }
 
-#entrybar #msg{
-    
+#chat-entrybar #msg{
+    width: 70%;
+}
+
+#chat-messages{
+    margin:auto;
+    margin-top:5%;
+    margin-bottom:5%;
+    max-height:75%;
+    overflow:auto;
+    display:inline-block;
+    width:70%;
+    left:0;
 }
 
 .chatitem{
     display: block;
     padding-top: 0.25em;
     padding-bottom: 0.25em;
+    align: top;
+    /*
     max-height: 10em;
     margin:auto;
     overflow: auto;
+    */
 }
 
 .chatitem .msgtxt{
-    display: inline;
-    margin: 5px;
+    display: inline-block;
+    margin: auto;
+    max-height: 10em;
+    overflow: auto;
 }
 
 .chatitem .userid{
-    display: inline;
-    margin: 1em;
+    display: inline-block;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 0em;
+    position: relative;
+    top: 0;
 }
