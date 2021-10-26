@@ -22,7 +22,9 @@ const ChatPageT =
 `
 <div id="ChatPage">
     <div id=landing-navbar>
-	<p id=welcome-banner>Welcome to Eris</p>
+	<p id=welcome-banner></p>
+	<button id=new-server>New Server</button>
+	<button id=new-channel>New Channel</button>
 	<button id=session-signout>Log Out</button>
     </div>
     <div id=eris-list>
@@ -37,7 +39,7 @@ const ChatPageT =
     </div>
 </div>
 `
-
+// Chat Item Factory
 let makeChatItem = function(id, user, message){
     let chatitem = document.createElement("div");
     let chatitem_msg = document.createElement("div");
@@ -78,7 +80,12 @@ const renderChannels = function(channels){
     let ids = Object.keys(channels);
     ids.map( id => {
 	let name = channels[id].name;
-	document.querySelector("#channel-list").append( "#" + name);
+	channeldiv = document.createElement("div");
+	channeldiv.setAttribute("id", "chan"+id);
+	channeldiv.setAttribute("class", "channelitem");
+	channeldiv.append("#"+name);
+	//channeldiv.addEventListener("click", changeChannel(id));
+	document.querySelector("#channel-list").append(channeldiv);
     });
 }
 
@@ -92,6 +99,7 @@ const renderServers = function(servers){
 	serverdiv.setAttribute("id", "serv"+id);
 	serverdiv.setAttribute("class", "serveritem");
 	serverdiv.append(name);
+	//serverdiv.addEventListener("click", changeServer(id));
 	document.querySelector("#server-list").append(serverdiv);
     });
     //console.log(JSON.stringify(servers));
@@ -115,10 +123,28 @@ const renderServerUsers = function(users) {
  */
 class ErisSession{
     serverID; channelID; userID; 
-    channelRef; messageRef; rolesRef; usermapRef; serverRef;
+    channelRef; messageRef; membersRef; usermapRef; serverRef;
     constructor(serverID, channelID, userID){
 	this.serverID = serverID;
 	this.channelID = channelID;
 	this.userID = userID;
     }
+}
+
+/****
+ * Error handlers for various operations
+ */
+let errChannel = function(err){
+    alert("You are not allowed to add new channels to this server. Ask an admin to add a server for you");
+    console.log(err.code);
+    console.log(err.message);
+}
+
+let errServer = function(err){
+
+    alert(`There was the following error 
+	    when adding/changing the server:\n
+	    ${err.code}\n${err.message}`);
+    console.log(err.code);
+    console.log(err.message);
 }
